@@ -1,4 +1,7 @@
 const exec = require('child_process').exec;
+const colors = require('colors');
+const ora = require('ora');
+
 
 const execute = (command) => {
     return new Promise((resolve, reject) => {
@@ -16,16 +19,22 @@ class Publisher {
     constructor() {
         this.commands = [];
         this.index = 0;
+        this.spinner = ora({ prefixText: true }).start();
     }
     execute() {
+
         if (this.index < this.commands.length) {
+            this.spinner.text = this.commands[this.index];
             execute(this.commands[this.index]).then(success => {
-                console.log("\x1b[32m%s\x1b[0m", `${this.index + 1} - ${success}`);
+                this.spinner.succeed(`${this.index + 1} - ${success}`);
                 this.index++;
                 this.execute();
             }).catch(error => {
-                console.log("\x1b[31m%s\x1b[0m", `${this.index + 1} - ${error}`);
+                this.spinner.error(`${this.index + 1} - ${error}`);
             });
+        }
+        else {
+            this.spinner.stop();
         }
     }
 }

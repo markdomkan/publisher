@@ -12,5 +12,9 @@
   "author": "Mark Domkan",
   "license": "ISC",
   "homepage": "",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "ora": "^4.0.3"
+  }
 }
