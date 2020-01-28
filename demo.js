@@ -1,6 +1,7 @@
 const publisher = require('./publisher');
 
-publisher.command("git add .");
-publisher.commandWithInput('git commit -a -m "$answer"', "Nom del commit");
-publisher.command("git push origin master");
-publisher.execute();
+publisher
+    .command("git add .")
+    .commandWithInput('git commit -a -m "$answer"', "Commit")
+    .command("git push origin master")
+    .execute();
