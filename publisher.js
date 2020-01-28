@@ -140,7 +140,9 @@ function execute(config) {
             switch (commands[index].type) {
                 case Types.COMMAND:
                     spinner.succeed(`${index + 1} - ${commands[index].command}`);
-                    spinner.info(result);
+                    if (result) {
+                        spinner.info(result);
+                    }
                     break;
 
                 case Types.SSH_COPY:
@@ -149,7 +151,9 @@ function execute(config) {
 
                 case Types.SSH_COMMAND:
                     spinner.succeed(`${index + 1} - ${commands[index].command}`);
-                    spinner.info(result);
+                    if (result) {
+                        spinner.info(result);
+                    }
                     break;
             }
             index++;
