@@ -141,7 +141,7 @@ function execute(config) {
                 case Types.COMMAND:
                     spinner.succeed(`[${index + 1}/${commands.length}] - ${commands[index].command}`);
                     if (result) {
-                        spinner.info(result);
+                        spinner.info(`  ${result}`);
                     }
                     break;
 
@@ -152,7 +152,7 @@ function execute(config) {
                 case Types.SSH_COMMAND:
                     spinner.succeed(`[${index + 1}/${commands.length}] - ${commands[index].command}`);
                     if (result) {
-                        spinner.info(result);
+                        spinner.info(`  ${result}`);
                     }
                     break;
             }
