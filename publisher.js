@@ -139,18 +139,18 @@ function execute(config) {
 
             switch (commands[index].type) {
                 case Types.COMMAND:
-                    spinner.succeed(`${index + 1} - ${commands[index].command}`);
+                    spinner.succeed(`[${index + 1}/${commands.length}] - ${commands[index].command}`);
                     if (result) {
                         spinner.info(result);
                     }
                     break;
 
                 case Types.SSH_COPY:
-                    spinner.succeed(`${index + 1} - copy ${commands[index].source} to ${commands[index].destination}`);
+                    spinner.succeed(`[${index + 1}/${commands.length}] - copy ${commands[index].source} to ${commands[index].destination}`);
                     break;
 
                 case Types.SSH_COMMAND:
-                    spinner.succeed(`${index + 1} - ${commands[index].command}`);
+                    spinner.succeed(`[${index + 1}/${commands.length}] - ${commands[index].command}`);
                     if (result) {
                         spinner.info(result);
                     }
@@ -159,7 +159,7 @@ function execute(config) {
             index++;
             execute(config);
         }).catch(error => {
-            spinner.fail(`${index + 1} - ${error}`);
+            spinner.fail(`[${index + 1}/${commands.length}] - ${error}`);
             process.exit(0);
         });
     }
