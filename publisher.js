@@ -91,7 +91,9 @@ function execute() {
         spinner.text = commands[index];
         switchType(commands[index]).then(() => {
             spinner.succeed(`${index + 1} - ${commands[index].command}`);
-            spinner.start(`Doing: ${commands[index + 1].command}`);
+            if (commands[index + 1]) {
+                spinner.start(`Doing: ${commands[index + 1].command}`);
+            }
             index++;
             execute();
         }).catch(error => {
