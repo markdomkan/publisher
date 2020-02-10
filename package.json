@@ -1,13 +1,10 @@
 {
   "name": "@markdomkan/publisher",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "publisher.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/markdomkan/publisher.git"
+    "url": "https://github.com/markdomkan/publisher.git"
   },
   "author": "Mark Domkan",
   "license": "ISC",
