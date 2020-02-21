@@ -31,7 +31,7 @@ function checkConnect(config) {
 function exectueCommand(command, resolve, reject) {
     exec(command.command, (err, stdout, stderr) => {
         if (err != null) {
-            reject(stdout);
+            reject(stderr);
         } else {
             resolve(stdout);
         }
